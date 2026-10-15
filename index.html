@@ -1,1 +1,128 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UC & Diamonds Shop</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f6ff;
+      color: #17345c;
+    }
+    header {
+      background: #1261d8;
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; }
+    main {
+      max-width: 520px;
+      margin: 20px auto;
+      padding: 0 14px;
+    }
+    .card {
+      background: white;
+      padding: 18px;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px #17345c12;
+    }
+    h2 { margin-top: 0; }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbdaf0;
+      border-radius: 9px;
+      font-size: 16px;
+      background: white;
+    }
+    button {
+      width: 100%;
+      border: 0;
+      padding: 14px;
+      border-radius: 10px;
+      background: #1261d8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    .price { color: #1261d8; font-weight: bold; }
+    footer { text-align: center; padding: 20px; color: #657b99; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UC & Diamonds Shop</h1>
+    <p>PUBG Mobile UC • Mobile Legends Diamonds</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Place Your Order</h2>
+
+      <label for="game">Choose a game</label>
+      <select id="game">
+        <option value="PUBG Mobile UC">PUBG Mobile UC</option>
+        <option value="Mobile Legends Diamonds">Mobile Legends Diamonds</option>
+      </select>
+
+      <label for="package">Choose a package</label>
+      <select id="package">
+        <option value="60 UC - 4200 Ks">60 UC — 4,200 Ks</option>
+        <option value="120 UC - 8300 Ks">120 UC — 8,300 Ks</option>
+        <option value="325 UC - 20800 Ks">325 UC — 20,800 Ks</option>
+        <option value="660 UC - 41500 Ks">660 UC — 41,500 Ks</option>
+        <option value="720 UC - 45500 Ks">720 UC — 45,500 Ks</option>
+        <option value="1800 UC - 103500 Ks">1,800 UC — 103,500 Ks</option>
+        <option value="3850 UC - 206000 Ks">3,850 UC — 206,000 Ks</option>
+        <option value="8100 UC - 410000 Ks">8,100 UC — 410,000 Ks</option>
+        <option value="ML Diamonds - confirm price">ML Diamonds — price to be confirmed</option>
+      </select>
+
+      <label for="player">Player ID</label>
+      <input id="player" placeholder="Enter your Player ID">
+
+      <label for="contact">Your contact (Telegram or phone)</label>
+      <input id="contact" placeholder="How can we contact you?">
+
+      <button id="order">Prepare Order</button>
+      <p id="result" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>Thank you for supporting our shop!</footer>
+
+  <script>
+    document.getElementById("order").addEventListener("click", function () {
+      const game = document.getElementById("game").value;
+      const pack = document.getElementById("package").value;
+      const player = document.getElementById("player").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const result = document.getElementById("result");
+
+      if (!player || !contact) {
+        result.textContent = "Please enter your Player ID and contact details.";
+        return;
+      }
+
+      result.textContent =
+        "Order summary: " + game + " | " + pack +
+        " | Player ID: " + player +
+        ". Please contact the seller to confirm your order and payment.";
+    });
+  </script>
+</body>
+</html>
+
